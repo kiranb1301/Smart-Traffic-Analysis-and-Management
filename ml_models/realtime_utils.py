@@ -127,4 +127,4 @@ def simulate_realtime_from_chunks(chunk_size=500):
 
     print("✅ Simulation complete.")
     print(f"🧠 Total Chunks Processed: {len(results)}")
-    return results
+    return results 
