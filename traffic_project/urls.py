@@ -20,5 +20,5 @@ from django.conf import settings
 from django.conf.urls.static import static
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('smarttraffic/',include('traffic_api.urls')),
+    path('',include('traffic_api.urls')),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
