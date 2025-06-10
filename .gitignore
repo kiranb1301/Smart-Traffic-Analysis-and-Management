@@ -1,0 +1,28 @@
+# Python bytecode files
+*.pyc
+*.pyo
+*.pyd
+
+# Editor folders and files
+.idea/
+.vscode/
+
+# Django files
+*.sqlite3
+*.log
+
+# Virtual Environment folders
+.venv/
+.venv311/
+
+# PyCharm specific files
+.idea/
+
+# VS Code specific files
+.vscode/
+
+# MacOS system files
+.DS_Store
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
