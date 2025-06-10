@@ -85,7 +85,7 @@ optimizeBtn.addEventListener("click", async () => {
   let map, congestionLayer;
   congestionBtn.addEventListener("click", async () => {
     congestionSpinner.style.visibility = "visible";
-    const res = await fetch("api/congestion/", { method: "POST" });
+    const res = await fetch("/smarttraffic/api/congestion/", { method: "POST" });
     const json = await res.json();
     congestionSpinner.style.visibility = "hidden";
     if (!map) {
