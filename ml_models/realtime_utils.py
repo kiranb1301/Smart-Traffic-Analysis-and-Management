@@ -15,7 +15,7 @@ import os
 import pandas as pd
 from pathlib import Path
 def load_and_split_chunks(chunk_size=500):
-    df = pd.read_csv(Path("data/Metro_Interstate_Traffic_Volume.csv"))
+    df = pd.read_csv(Path("data/Synthetic_Traffic_Volume_Data.csv"))
     print(f"📊 Loaded rows: {len(df)}")
 
     df = df.fillna(0)

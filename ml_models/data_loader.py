@@ -2,7 +2,7 @@ import pandas as pd
 from pathlib import Path
 from django.utils import timezone
 
-DATA_PATH = Path("data/Metro_Interstate_Traffic_Volume.csv")
+DATA_PATH = Path("data/Synthetic_Traffic_Volume_Data.csv")
 
 def load_static_data(file_path=DATA_PATH):
     try:
