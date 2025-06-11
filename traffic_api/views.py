@@ -70,20 +70,21 @@ class TrafficRecordListCreate(generics.ListCreateAPIView):
     queryset = TrafficRecord.objects.all()
     serializer_class = TrafficRecordSerializer
 
-
 class PredictTrafficAPIView(APIView):
     def post(self, request):
-        model_type = request.data.get("model", "rf")
-        df = load_static_data()
+        model_type = request.data.get("model", "rf")  # Default to Random Forest if model type is not provided
+        df = load_static_data()  # Load your static data here
 
         if model_type == 'rf':
-            model, _ = train_rf_model_with_tuning(df)
+            model, mse = train_rf_model_with_tuning(df)  # Model and mean squared error returned
             message = "Random Forest prediction completed."
+            model_summary = model.get_params()  # You can return model parameters or any other metadata
         else:
-            model, _ = train_lstm_model_with_early_stopping(df)
+            model, scaler, mse = train_lstm_model_with_early_stopping(df)  # Model, scaler, and mse returned
             message = "LSTM prediction completed."
+            model_summary = model.summary()  # Return the summary of the LSTM model (or other metadata)
 
-        return Response({"message": message}, status=status.HTTP_200_OK)  
+        return Response({"message": message, "mse": mse, "model_summary": model_summary}, status=status.HTTP_200_OK)
     
 
 class OptimizeTrafficAPIView(APIView):
